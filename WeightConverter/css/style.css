@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    text-align: center;
+    color: white;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: darkslategrey;
+}
+
+.container {
+    margin: 5px auto;
+    max-width: 492px;
+}
+
+.header {
+    margin-top: 50px;
+    font-size: 57px;
+}
+
+select, option, input[type=number] {
+    width: 40%;
+    height: 2rem;
+    margin: 10px 0;
+    border-radius: 5px;
+    color: black;
+}
+
+span {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+#downArrow {
+    display: none;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 5px;
+    width: 30%;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: blue;
+}
+
+input[type=number] {
+    text-align: left;
+    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding-left: 10px;
+}
+
+#output, #input {
+    display: inline-block;
+    width: 50%;
+    height: 4rem;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+    background-color: green;
+    text-align: left;
+    overflow: hidden;
+}
+
+#input {
+    background-color: blueviolet;
+}
+
+#value, #output, #input {
+    display: none;
+}
+
+#convertedUnit, #convertedValue, #inputUnit, #inputValue {
+    padding: 5px;
+    text-align: left;
+}
+
+@media screen and (max-width: 492px) {
+    .header {
+        margin: auto 0;
+        margin-top: 50px;
+        font-size: 11vw;    
+    }
+
+    .container {
+        margin: 5px 15px;
+    }
+    
+    select, input[type=number], #output, #input {
+        width: 100%;
+    }
+
+    button {
+        width: 50%;
+    }
+
+    #rightArrow {
+        display: none;
+    }
+    
+    #downArrow {
+        display: inline;
+    }
+}

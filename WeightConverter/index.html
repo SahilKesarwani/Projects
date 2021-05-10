@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Converter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">Weight Converter</div>
+            <select name="weights" id="fromWeight" required>
+                <option value="Metric tons">Metric tons</option>
+                <option value="Kilograms">Kilograms</option>
+                <option value="Grams">Grams</option>
+                <option value="Milligrams">Milligrams</option>
+                <option value="Micrograms">Micrograms</option>
+                <option value="Pounds">Pounds</option>
+                <option value="Ounces">Ounces</option>
+            </select>
+            <span id="rightArrow">&#8594;</span>
+            <span id="downArrow">&#8595;</span>
+            <select name="weights" id="toWeight" required>
+                <option value="Metric tons">Metric tons</option>
+                <option value="Kilograms">Kilograms</option>
+                <option value="Grams">Grams</option>
+                <option value="Milligrams">Milligrams</option>
+                <option value="Micrograms">Micrograms</option>
+                <option value="Pounds">Pounds</option>
+                <option value="Ounces">Ounces</option>
+            </select>
+            <button type="button" id="next">Next</button>
+        </div>
+        <div class="row" id="result">
+            <input type="number" id="value">
+            <br>
+            <div id="input">
+                <h4 id="inputUnit"></h4>
+                <div id="inputValue"></div>
+            </div>
+            <br>
+            <div id="output">
+                <h4 id="convertedUnit"></h4>
+                <div id="convertedValue"></div>
+            </div>
+        </div>
+    </div>    
+    <script src="js/script.js"></script>
+</body>
+</html>
