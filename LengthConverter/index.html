@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Length Converter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">Length Converter</div>
+            <select name="lengths" id="fromLength" required>
+                <option value="Centimeters">Centimeters</option>
+                <option value="Decimeters">Decimeters</option>
+                <option value="Feet">Feet</option>
+                <option value="Inches">Inches</option>
+                <option value="Kilometers">Kilometers</option>
+                <option value="Meters">Meters</option>
+                <option value="Miles">Miles</option>
+                <option value="Millimeters">Millimeters</option>
+                <option value="Nautical miles">Nautical miles</option>
+                <option value="Yards">Yards</option>
+            </select>
+            <button type="button" class="arrows" id="rightArrow">&#8644;</button>
+            <button type="button" class="arrows" id="downArrow">&#8645;</button>
+            <select name="lengths" id="toLength" required>
+                <option value="Centimeters">Centimeters</option>
+                <option value="Decimeters">Decimeters</option>
+                <option value="Feet">Feet</option>
+                <option value="Inches">Inches</option>
+                <option value="Kilometers">Kilometers</option>
+                <option value="Meters">Meters</option>
+                <option value="Miles">Miles</option>
+                <option value="Millimeters">Millimeters</option>
+                <option value="Nautical miles">Nautical miles</option>
+                <option value="Yards">Yards</option>
+            </select>
+            <button type="button" id="next">Process</button>
+        </div>
+        <div class="row" id="result">
+            <input type="number" id="value">
+            <br>
+            <div id="input">
+                <h4 id="inputUnit"></h4>
+                <div id="inputValue"></div>
+            </div>
+            <br>
+            <div id="output">
+                <h4 id="convertedUnit"></h4>
+                <div id="convertedValue"></div>
+            </div>
+        </div>
+    </div>    
+    <script src="js/script.js"></script>
+</body>
+</html>

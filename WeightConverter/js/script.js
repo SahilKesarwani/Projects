@@ -9,6 +9,16 @@ document.getElementById('next').addEventListener("click", function() {
     document.getElementById('value').placeholder = "Enter " + fromWeight;
 });
 
+document.getElementById('rightArrow').addEventListener("click", swap);
+document.getElementById('downArrow').addEventListener("click", swap);
+
+function swap() {
+    fromWeight = document.getElementById('fromWeight').value;
+    toWeight = document.getElementById('toWeight').value;
+    document.getElementById('fromWeight').value = toWeight;
+    document.getElementById('toWeight').value = fromWeight;
+}
+
 document.getElementById('value').addEventListener("input", function(event) {
     value = event.target.value;
     document.getElementById('inputUnit').innerHTML = fromWeight + ":";
