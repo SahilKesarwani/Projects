@@ -54,8 +54,6 @@ button.arrows {
     background-color: darkslategrey;
     border: 1px solid white;
     border-radius: 5px;
-    height: 1.5rem;
-    width: 1.5rem;
 }
 
 button.arrows:hover {

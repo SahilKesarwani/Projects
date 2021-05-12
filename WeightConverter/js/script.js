@@ -1,12 +1,19 @@
 let fromWeight;
 let toWeight;
-let value = 0;
+let input;
+let inputValue;
+
+input = document.getElementById('value');
 
 document.getElementById('next').addEventListener("click", function() {
     fromWeight = document.getElementById('fromWeight').value;
     toWeight = document.getElementById('toWeight').value;
     document.getElementById('value').style.display = "inline";
     document.getElementById('value').placeholder = "Enter " + fromWeight;
+    inputValue = input.value;
+    if(inputValue) {
+        convert(inputValue);
+    }
 });
 
 document.getElementById('rightArrow').addEventListener("click", swap);
@@ -19,8 +26,11 @@ function swap() {
     document.getElementById('toWeight').value = fromWeight;
 }
 
-document.getElementById('value').addEventListener("input", function(event) {
-    value = event.target.value;
+var convertByInput = function(event) {
+    convert(event.target.value);
+}
+
+function convert(value) {
     document.getElementById('inputUnit').innerHTML = fromWeight + ":";
     document.getElementById('input').style.display = "inline-block";
     document.getElementById('convertedUnit').innerHTML = toWeight + ":";
@@ -140,4 +150,6 @@ document.getElementById('value').addEventListener("input", function(event) {
             document.getElementById('convertedValue').innerHTML = value;
         }
     }
-});
+};
+
+input.addEventListener("input", convertByInput);

@@ -1,12 +1,19 @@
 let fromLength;
 let toLength;
-let value = 0;
+let input;
+let inputValue;
+
+input = document.getElementById('value');
 
 document.getElementById('next').addEventListener("click", function() {
     fromLength = document.getElementById('fromLength').value;
     toLength = document.getElementById('toLength').value;
     document.getElementById('value').style.display = "inline";
     document.getElementById('value').placeholder = "Enter " + fromLength;
+    inputValue = input.value;
+    if(inputValue) {
+        convert(inputValue);
+    }
 });
 
 document.getElementById('rightArrow').addEventListener("click", swap);
@@ -19,8 +26,11 @@ function swap() {
     document.getElementById('toLength').value = fromLength;
 }
 
-document.getElementById('value').addEventListener("input", function(event) {
-    value = event.target.value;
+var convertByInput = function(event) {
+    convert(event.target.value);
+}
+
+function convert(value) {
     document.getElementById('inputUnit').innerHTML = fromLength + ":";
     document.getElementById('input').style.display = "inline-block";
     document.getElementById('convertedUnit').innerHTML = toLength + ":";
@@ -248,4 +258,6 @@ document.getElementById('value').addEventListener("input", function(event) {
             document.getElementById('convertedValue').innerHTML = value;
         }
     }
-});
+}
+
+input.addEventListener("input", convertByInput);
