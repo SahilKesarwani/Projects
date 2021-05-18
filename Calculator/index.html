@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Calculator</h1>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div id="topside"></div>
+        <div id="screen">
+            <div id="input"></div>
+            <div id="result"></div>
+            <span id="memory"></span>
+        </div>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="side-buttons"><button type="button" class="more">(</button></td>
+                    <td class="side-buttons"><button type="button" class="more">)</button></td>
+                    <td class="side-buttons"><button type="button" class="more">1/x</button></td>
+                    <td class="main-buttons"><button type="button" class="light">mc</button></td>
+                    <td class="main-buttons"><button type="button" class="light">m+</button></td>
+                    <td class="main-buttons"><button type="button" class="light">m-</button></td>
+                    <td class="main-buttons"><button type="button" class="light">mr</button></td>
+                </tr>
+                <tr>
+                    <td class="side-buttons"><button type="button" class="more">x&#178;</button></td>
+                    <td class="side-buttons"><button type="button" class="more">x&#179;</button></td>
+                    <td class="side-buttons"><button type="button" class="more">x&#8308;</button></td>
+                    <td class="main-buttons"><button type="button" class="light">C</button></td>
+                    <td class="main-buttons"><button type="button" class="light">/</button></td>
+                    <td class="main-buttons"><button type="button" class="light">x</button></td>
+                    <td class="main-buttons"><button type="button" class="light">&#9003;</button></td>
+                </tr>
+                <tr>
+                    <td class="side-buttons"><button type="button" class="more">x!</button></td>
+                    <td class="side-buttons"><button type="button" class="more">&#8730;</button></td>
+                    <td class="side-buttons"><button type="button" class="more">&#8731;x</button></td>
+                    <td class="main-buttons"><button type="button" class="white">7</button></td>
+                    <td class="main-buttons"><button type="button" class="white">8</button></td>
+                    <td class="main-buttons"><button type="button" class="white">9</button></td>
+                    <td class="main-buttons"><button type="button" class="light">-</button></td>
+                </tr>
+                <tr>
+                    <td class="side-buttons"><button type="button" class="more">e</button></td>
+                    <td class="side-buttons"><button type="button" class="more">ln</button></td>
+                    <td class="side-buttons"><button type="button" class="more">log</button></td>
+                    <td class="main-buttons"><button type="button" class="white">4</button></td>
+                    <td class="main-buttons"><button type="button" class="white">5</button></td>
+                    <td class="main-buttons"><button type="button" class="white">6</button></td>
+                    <td class="main-buttons"><button type="button" class="light">+</button></td>
+                </tr>
+                <tr>
+                    <td class="side-buttons"><button type="button" class="more" id="sin">sin</button></td>
+                    <td class="side-buttons"><button type="button" class="more" id="cos">cos</button></td>
+                    <td class="side-buttons"><button type="button" class="more" id="tan">tan</button></td>
+                    <td class="main-buttons"><button type="button" class="white">1</button></td>
+                    <td class="main-buttons"><button type="button" class="white">2</button></td>
+                    <td class="main-buttons"><button type="button" class="white">3</button></td>
+                    <td class="main-buttons" rowspan="2"><button type="button" id="equals">=</button></td>
+                </tr>
+                <tr>
+                    <td class="side-buttons"><button type="button" class="more">Inv</button></td>
+                    <td class="side-buttons"><button type="button" class="more" id="hyp">hyp</button></td>
+                    <td class="side-buttons"><button type="button" class="more">&#960;</button></td>
+                    <td class="main-buttons"><button type="button" class="white">%</button></td>
+                    <td class="main-buttons"><button type="button" class="white">0</button></td>
+                    <td class="main-buttons"><button type="button" class="white">.</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="bottom-button">
+            <span id="main-screen" class="bottom-buttons">123</span>
+            <span id="side-screen" class="bottom-buttons">Fx</span>
+        </div>
+        <div id="downside"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

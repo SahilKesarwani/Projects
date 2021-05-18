@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 17px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: green;
+}
+
+header h1 {
+    color: white;
+    background-color: black;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.container {
+    background-color: #162d2d;
+    margin: 0 auto;
+    max-width: 768px;
+    border-radius: 10px;
+}
+
+#screen {
+    margin: 10px auto;
+    width: 99%;
+    max-width: 768px;
+    height: 6rem;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 10px;
+    overflow-x: scroll;
+    overflow-y: visible;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#screen::-webkit-scrollbar {
+    display: none;
+}
+
+#input, #result {
+    margin: auto;
+    width: 100%;
+    height: 3rem;
+    max-width: 768px;
+    text-align: left;
+    border: none;
+}
+
+#input {
+    font-size: 25px;
+    padding-top: 16px;
+    margin-top: -13px;
+    word-spacing: 0.07em;
+}
+
+#result {
+    font-size: 50px;
+}
+
+#memory {
+    position: absolute;
+    font-size: 18px;
+    top: 12px;
+    right: 14px;
+}
+
+button, .bottom-buttons {
+    width: 100%;
+    height: 3rem;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover, .bottom-buttons {
+    cursor: pointer;
+}
+
+.table {
+    margin: auto;
+    width: 99%;
+    max-width: 768px;
+}
+
+td {
+    width: 100rem;
+}
+
+#equals {
+    height: 6rem;
+    background-color: #3b62e3;
+    color: white;
+    font-weight: bold;
+}
+
+#equals:hover {
+    background-color: #3b4ce3;
+}
+
+.white {
+    font-weight: bold;
+    background-color: white;
+}
+
+.white:hover {
+    background-color: #f0f0f0;
+}
+
+.more {
+    background-color: #c7c7c7;
+}
+
+.more:hover {
+    background-color: #bdbbbb;
+}
+
+.light {
+    background-color: #d9d9d9;
+}
+
+.light:hover {
+    background-color: #d2d2d2;
+}
+
+#topside, #downside {
+    height: 5px;
+}
+
+#bottom-button {
+    display: none;
+}
+
+
+@media screen and (max-width: 492px) {
+    .container {
+        position: relative;
+    }
+
+    .side-buttons {
+        display: none;
+    }
+    
+    #bottom-button {
+        display: inline-block;
+        width: 160px;
+        height: 2.3rem;
+        border: 1px solid black;
+        border-radius: 30px;
+        margin-top: 45px;
+        overflow: hidden;
+        position: absolute;
+        left: 3px;
+    }
+    
+    .bottom-buttons {
+        display: inline-block;
+        width: 48%;
+        margin: 0 -2px;
+        font-size: 20px;
+        padding: 7px;
+        border: none;
+        border-radius: 0;
+    }
+
+    #main-screen {
+        background-color: #d9d9d9c4;
+        color: #3b4ce3;
+        width: 80px;
+    }
+    
+    #side-screen {
+        font-style: italic;
+        background-color: #ffffff;
+        width: 80px;
+    }
+}
