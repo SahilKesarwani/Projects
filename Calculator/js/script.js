@@ -31,6 +31,25 @@ function getIndexOfSubStr(str, subStr, preIndex, output) {
     return output;
 }
 
+function evalpi() {
+    let indeces = getIndexOfSubStr(result.innerHTML, '\u03C0', 0, []);
+    indeces.forEach((item, index, arr) => {
+        if((result.innerHTML[item + index - 1] >= 1) || (result.innerHTML[item + index - 1] <= 9)) {
+            result.innerHTML = result.innerHTML.slice(0, item + index) + '*' + result.innerHTML.slice(item + index);
+        }
+    });
+    indeces = getIndexOfSubStr(result.innerHTML, '\u03C0', 0, []);
+    indeces.forEach((item, index, arr) => {
+        if((result.innerHTML[item + index + 1] >= 1) || (result.innerHTML[item + index + 1] <= 9)) {
+            result.innerHTML = result.innerHTML.slice(0, item + index + 1) + '*' + result.innerHTML.slice(item + index + 1);
+        }
+    });
+    let str = result.innerHTML;
+    str = str.replaceAll('\u03C0', Math.PI + '');
+    result.innerHTML = str;
+    result.innerHTML = eval(result.innerHTML) + '';
+}
+
 buttons = document.querySelectorAll('button');
 for (item of buttons) {
     item.addEventListener('click', function(event) {
@@ -38,6 +57,10 @@ for (item of buttons) {
         input.innerHTML = '';
         document.getElementById('memory').innerHTML = '';
         console.log(buttonInput);
+
+        if(result.innerHTML == "Error") {
+            result.innerHTML = '';
+        }
         
         switch(buttonInput) {
 
@@ -58,22 +81,7 @@ for (item of buttons) {
                     if(result.innerHTML != inputValue) {
                         input.innerHTML = result.innerHTML + "=";
                         if(result.innerHTML.includes('\u03C0')) {
-                            let indeces = getIndexOfSubStr(result.innerHTML, '\u03C0', 0, []);
-                            indeces.forEach((item, index, arr) => {
-                                if((result.innerHTML[item + index - 1] >= 1) || (result.innerHTML[item + index - 1] <= 9)) {
-                                    result.innerHTML = result.innerHTML.slice(0, item + index) + '*' + result.innerHTML.slice(item + index);
-                                }
-                            });
-                            indeces = getIndexOfSubStr(result.innerHTML, '\u03C0', 0, []);
-                            indeces.forEach((item, index, arr) => {
-                                if((result.innerHTML[item + index + 1] >= 1) || (result.innerHTML[item + index + 1] <= 9)) {
-                                    result.innerHTML = result.innerHTML.slice(0, item + index + 1) + '*' + result.innerHTML.slice(item + index + 1);
-                                }
-                            });
-                            let str = result.innerHTML;
-                            str = str.replaceAll('\u03C0', Math.PI + '');
-                            result.innerHTML = str;
-                            result.innerHTML = eval(result.innerHTML) + '';
+                            evalpi();
                         }
                         else {
                             result.innerHTML = eval(result.innerHTML) + '';
@@ -178,6 +186,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.log(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }                
@@ -188,6 +199,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.log10(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }                
@@ -198,6 +212,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.sin(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }
@@ -208,6 +225,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.cos(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }
@@ -218,6 +238,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.tan(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }         
@@ -273,6 +296,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.asin(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }
@@ -283,6 +309,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.acos(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }
@@ -293,6 +322,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.atan(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }
@@ -303,6 +335,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.sinh(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }
@@ -313,6 +348,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.cosh(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }
@@ -323,6 +361,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.tanh(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }         
@@ -333,6 +374,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.asinh(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }
@@ -343,6 +387,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.acosh(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }
@@ -353,6 +400,9 @@ for (item of buttons) {
                 if(result.innerHTML == '') {
                     alert("Enter some number first.");
                 }else {
+                    if(result.innerHTML.includes('\u03C0')) {
+                        evalpi();
+                    }
                     result.innerHTML = Math.atanh(eval(result.innerHTML));
                     inputValue = result.innerHTML;
                 }
@@ -361,6 +411,10 @@ for (item of buttons) {
             default :
             inputValue += buttonInput;
             result.innerHTML += buttonInput;
+        }
+
+        if(result.innerHTML == "NaN") {
+            result.innerHTML = "Error";
         }
     });
 }
