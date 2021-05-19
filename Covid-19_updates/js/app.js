@@ -6,7 +6,6 @@ xhr.onload = function () {
     if(this.status === 200) {
         let obj = JSON.parse(this.responseText);
         let states = obj.statewise;
-        console.log(states);
         
         let statsHTML = ``;
         let stats = '';
