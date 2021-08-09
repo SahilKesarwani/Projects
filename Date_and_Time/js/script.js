@@ -1,141 +1,155 @@
 let dateAndTime;
 let time;
 let date;
+let seconds;
+let minutes;
+let hours;
 let dateForSmallScreen;
-let dateForLargeScreen = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+let dateForLargeScreen = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+
+function modifyTimeFormat(hours, zeroBeforeMinutes, minutes, zeroBeforeSeconds, seconds) {
+	return `${hours}:${zeroBeforeMinutes}${minutes}:${zeroBeforeSeconds}${seconds}`;
+}
+
+function insertTime(time, meridiem) {
+	document.getElementById("time").innerHTML = `${time}&nbsp;${meridiem}`;
+}
 
 function screenWidth(dateForSmallScreen) {
-    setInterval(() => {
-        dateAndTime = new Date();
-        if(dateForSmallScreen.matches) {
-            date = dateAndTime.toLocaleDateString('en-GB');
-            if(dateAndTime.getMinutes() <= 9) {
-                if(dateAndTime.getSeconds() <= 9) {
-                    if(dateAndTime.getHours() == 12) {
-                        time = dateAndTime.getHours() + ':0' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() > 12) {
-                        time = (dateAndTime.getHours() - 12) + ':0' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() == 0) {
-                        time = (dateAndTime.getHours() + 12) + ':0' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }else {
-                        time = dateAndTime.getHours() + ':0' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }
-                }else {
-                    if(dateAndTime.getHours() == 12) {
-                        time = dateAndTime.getHours() + ':0' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() > 12) {
-                        time = (dateAndTime.getHours() - 12) + ':0' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() == 0) {
-                        time = (dateAndTime.getHours() + 12) + ':0' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }else {
-                        time = dateAndTime.getHours() + ':0' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }
-                }
-            }else {
-                if(dateAndTime.getSeconds() <= 9) {
-                    if(dateAndTime.getHours() == 12) {
-                        time = dateAndTime.getHours() + ':' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() > 12) {
-                        time = (dateAndTime.getHours() - 12) + ':' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() == 0) {
-                        time = (dateAndTime.getHours() + 12) + ':' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }else {
-                        time = dateAndTime.getHours() + ':' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }
-                }else {
-                    if(dateAndTime.getHours() == 12) {
-                        time = dateAndTime.getHours() + ':' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() > 12) {
-                        time = (dateAndTime.getHours() - 12) + ':' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() == 0) {
-                        time = (dateAndTime.getHours() + 12) + ':' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }else {
-                        time = dateAndTime.getHours() + ':' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }
-                }
-            }
-        }else {
-            date = dateAndTime.toLocaleDateString(undefined, dateForLargeScreen);
-            if(dateAndTime.getMinutes() <= 9) {
-                if(dateAndTime.getSeconds() <= 9) {
-                    if(dateAndTime.getHours() == 12) {
-                        time = dateAndTime.getHours() + ':0' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() > 12) {
-                        time = (dateAndTime.getHours() - 12) + ':0' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() == 0) {
-                        time = (dateAndTime.getHours() + 12) + ':0' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }else {
-                        time = dateAndTime.getHours() + ':0' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }
-                }else {
-                    if(dateAndTime.getHours() == 12) {
-                        time = dateAndTime.getHours() + ':0' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() > 12) {
-                        time = (dateAndTime.getHours() - 12) + ':0' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() == 0) {
-                        time = (dateAndTime.getHours() + 12) + ':0' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }else {
-                        time = dateAndTime.getHours() + ':0' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }
-                }
-            }else {
-                if(dateAndTime.getSeconds() <= 9) {
-                    if(dateAndTime.getHours() == 12) {
-                        time = dateAndTime.getHours() + ':' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() > 12) {
-                        time = (dateAndTime.getHours() - 12) + ':' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() == 0) {
-                        time = (dateAndTime.getHours() + 12) + ':' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }else {
-                        time = dateAndTime.getHours() + ':' + dateAndTime.getMinutes() + ':0' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }
-                }else {
-                    if(dateAndTime.getHours() == 12) {
-                        time = dateAndTime.getHours() + ':' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() > 12) {
-                        time = (dateAndTime.getHours() - 12) + ':' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;PM';
-                    }else if(dateAndTime.getHours() == 0) {
-                        time = (dateAndTime.getHours() + 12) + ':' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }else {
-                        time = dateAndTime.getHours() + ':' + dateAndTime.getMinutes() + ':' + dateAndTime.getSeconds(); 
-                        document.getElementById('time').innerHTML = time + '&nbsp;AM';
-                    }
-                }
-            }
-        }
-        document.getElementById('date').innerHTML = 'on ' + date;
-    }, 1000);
+	setInterval(() => {
+		dateAndTime = new Date();
+		seconds = dateAndTime.getSeconds();
+		minutes = dateAndTime.getMinutes();
+		hours = dateAndTime.getHours();
+		if (dateForSmallScreen.matches) {
+			date = dateAndTime.toLocaleDateString("en-GB");
+			if (minutes <= 9) {
+				if (seconds <= 9) {
+					if (hours == 12) {
+						time = modifyTimeFormat(hours, "0", minutes, "0", seconds);
+						insertTime(time, "PM");
+					} else if (hours > 12) {
+						time = modifyTimeFormat(hours - 12, "0", minutes, "0", seconds);
+						insertTime(time, "PM");
+					} else if (hours == 0) {
+						time = modifyTimeFormat(hours + 12, "0", minutes, "0", seconds);
+						insertTime(time, "AM");
+					} else {
+						time = modifyTimeFormat(hours, "0", minutes, "0", seconds);
+						insertTime(time, "AM");
+					}
+				} else {
+					if (hours == 12) {
+						time = modifyTimeFormat(hours, "0", minutes, "", seconds);
+						insertTime(time, "PM");
+					} else if (hours > 12) {
+						time = modifyTimeFormat(hours - 12, "0", minutes, "", seconds);
+						insertTime(time, "PM");
+					} else if (hours == 0) {
+						time = modifyTimeFormat(hours + 12, "0", minutes, "", seconds);
+						insertTime(time, "AM");
+					} else {
+						time = modifyTimeFormat(hours, "0", minutes, "", seconds);
+						insertTime(time, "AM");
+					}
+				}
+			} else {
+				if (seconds <= 9) {
+					if (hours == 12) {
+						time = modifyTimeFormat(hours, "", minutes, "0", seconds);
+						insertTime(time, "PM");
+					} else if (hours > 12) {
+						time = modifyTimeFormat(hours - 12, "", minutes, "", seconds);
+						insertTime(time, "PM");
+					} else if (hours == 0) {
+						time = modifyTimeFormat(hours + 12, "", minutes, "", seconds);
+						insertTime(time, "AM");
+					} else {
+						time = modifyTimeFormat(hours, "", minutes, "0", seconds);
+						insertTime(time, "AM");
+					}
+				} else {
+					if (hours == 12) {
+						time = modifyTimeFormat(hours, "", minutes, "", seconds);
+						insertTime(time, "PM");
+					} else if (hours > 12) {
+						time = modifyTimeFormat(hours - 12, "", minutes, "", seconds);
+						insertTime(time, "PM");
+					} else if (hours == 0) {
+						time = modifyTimeFormat(hours + 12, "", minutes, "", seconds);
+						insertTime(time, "AM");
+					} else {
+						time = modifyTimeFormat(hours, "", minutes, "", seconds);
+						insertTime(time, "AM");
+					}
+				}
+			}
+		} else {
+			date = dateAndTime.toLocaleDateString(undefined, dateForLargeScreen);
+			if (minutes <= 9) {
+				if (seconds <= 9) {
+					if (hours == 12) {
+						time = modifyTimeFormat(hours, "0", minutes, "0", seconds);
+						insertTime(time, "PM");
+					} else if (hours > 12) {
+						time = modifyTimeFormat(hours - 12, "0", minutes, "0", seconds);
+						insertTime(time, "PM");
+					} else if (hours == 0) {
+						time = modifyTimeFormat(hours + 12, "0", minutes, "0", seconds);
+						insertTime(time, "AM");
+					} else {
+						time = modifyTimeFormat(hours, "0", minutes, "0", seconds);
+						insertTime(time, "AM");
+					}
+				} else {
+					if (hours == 12) {
+						time = modifyTimeFormat(hours, "0", minutes, "", seconds);
+						insertTime(time, "PM");
+					} else if (hours > 12) {
+						time = modifyTimeFormat(hours - 12, "0", minutes, "", seconds);
+						insertTime(time, "PM");
+					} else if (hours == 0) {
+						time = modifyTimeFormat(hours + 12, "0", minutes, "", seconds);
+						insertTime(time, "AM");
+					} else {
+						time = modifyTimeFormat(hours, "0", minutes, "", seconds);
+						insertTime(time, "AM");
+					}
+				}
+			} else {
+				if (seconds <= 9) {
+					if (hours == 12) {
+						time = modifyTimeFormat(hours, "", minutes, "0", seconds);
+						insertTime(time, "PM");
+					} else if (hours > 12) {
+						time = modifyTimeFormat(hours - 12, "", minutes, "0", seconds);
+						insertTime(time, "PM");
+					} else if (hours == 0) {
+						time = modifyTimeFormat(hours + 12, "", minutes, "0", seconds);
+						insertTime(time, "AM");
+					} else {
+						time = modifyTimeFormat(hours, "", minutes, "0", seconds);
+						insertTime(time, "AM");
+					}
+				} else {
+					if (hours == 12) {
+						time = modifyTimeFormat(hours, "", minutes, "", seconds);
+						insertTime(time, "PM");
+					} else if (hours > 12) {
+						time = modifyTimeFormat(hours - 12, "", minutes, "", seconds);
+						insertTime(time, "PM");
+					} else if (hours == 0) {
+						time = modifyTimeFormat(hours + 12, "", minutes, "", seconds);
+						insertTime(time, "AM");
+					} else {
+						time = modifyTimeFormat(hours, "", minutes, "", seconds);
+						insertTime(time, "AM");
+					}
+				}
+			}
+		}
+		document.getElementById("date").innerHTML = "on " + date;
+	}, 1000);
 }
 
 dateForSmallScreen = window.matchMedia("(max-width: 491px)");
